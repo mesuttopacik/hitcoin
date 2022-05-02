@@ -18,7 +18,7 @@ const Detail = ({route}) => {
     priceChange1h,
   } = route.params.el;
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Header name={name} symbol={symbol} />
       <ScrollView>
         <Features
@@ -37,7 +37,7 @@ const Detail = ({route}) => {
 
         <News />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

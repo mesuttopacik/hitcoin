@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   featuresContainer: {
-    marginTop:65,
+    marginTop:100,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     borderWidth:1,
