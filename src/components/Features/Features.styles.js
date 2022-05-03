@@ -1,29 +1,42 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
+import {colors, sizes} from '../../constants/GlobalStyles';
+
+const marginTop = Platform.OS === 'android' ? 80 : 100;
 
 export default StyleSheet.create({
   featuresContainer: {
-    marginTop:100,
+    marginTop: marginTop,
+    backgroundColor:colors.accent,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    borderWidth:1,
-    boderColor:'#d1d1d1',
-    marginHorizontal:10,
+    borderWidth: 1,
+    borderColor: colors.borderColor,
+    marginHorizontal: 10,
+    borderRadius: 4,
+    shadowColor: colors.shadowColor,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
   secondInnerBody: {
-    marginRight: 10,
+    marginRight: sizes.marginVertical,
   },
   priceContainer: {
-    marginRight: 10,
+    marginRight: sizes.marginVertical,
   },
   title: {
-    fontWeight: '700',
+    fontSize: 10,
+    color: colors.slightText,
   },
   price: {
-    fontSize: 26,
+    fontSize: 22,
     fontWeight: '700',
+    color: colors.primary,
+  },
+  values:{
+    color: colors.primary,
   },
   priceChange1hBase: {
-    marginRight: 5,
     flexDirection: 'row',
     fontWeight: '700',
     padding: 3,

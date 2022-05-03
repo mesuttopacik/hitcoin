@@ -1,8 +1,13 @@
 import { Platform, StyleSheet } from 'react-native'
+import { colors, sizes } from '../../constants/GlobalStyles'
+
+
+const marginTitleTop = Platform.OS === 'android' ? 20 : 40;
 
 export default StyleSheet.create({
     container:{
         flex:1,
+        backgroundColor:colors.background,
         position:'absolute',
         left:0,
         right:0,
@@ -12,22 +17,26 @@ export default StyleSheet.create({
         elevation:1000,
         flexDirection:'row',
         alignItems:'center',
-        backgroundColor:'white',
         justifyContent:'space-between'
     },
     titleRight:{
-        marginRight:10,
-        marginTop:40,
+        color:colors.primary,
+        marginRight:sizes.marginVertical,
+        marginTop:marginTitleTop,
     },
     titleMidle:{
+        color:colors.primary,
         fontWeight:'500',
         fontSize:20,
-        marginTop:40,
+        marginTop:marginTitleTop,
     },
-    goBack:{
+    goBackContainer:{
         flexDirection:'row',
         alignItems:'center',
-        marginLeft:10,
-        marginTop:40,
+        marginLeft:sizes.marginVertical,
+        marginTop:marginTitleTop,
     },
+    backText:{
+        color:colors.primary,
+    }
 })

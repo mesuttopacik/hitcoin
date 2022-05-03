@@ -1,11 +1,13 @@
 import {StyleSheet} from 'react-native';
+import { colors, sizes } from '../../constants/GlobalStyles';
 
 export default StyleSheet.create({
   container: {
-    margin: 10,
+    margin: sizes.marginVertical,
   },
   trendingNews: {
-    fontSize: 23,
+    color:colors.primary,
+    fontSize: 20,
     marginBottom:10,
     fontWeight:'600'
   },
@@ -29,9 +31,9 @@ export default StyleSheet.create({
   },
   title: {
     textAlign: 'justify',
-    paddingRight: 5,
   },
   source: {
+    color: colors.slightText,
     textAlign: 'right',
     fontWeight:'600'
   },

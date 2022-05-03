@@ -3,10 +3,11 @@ import React from 'react'
 import styles from './Header.styles'
 import {useNavigation} from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {colors} from '../../constants/GlobalStyles'
 
 
 
-const backIcon = <Icon name="arrow-left" size={30} color="#dddddd" />;
+const backIcon = <Icon name="arrow-left" size={30} color={colors.primary} />;
 
 
 const Header = ({name,symbol}) => {
@@ -16,8 +17,8 @@ navigation.navigate('Coins')
   }
   return (
     <View style = {styles.container} >
-      <TouchableOpacity onPress={goBackHandler}  style={styles.goBack} >
-        {backIcon}<Text>Back</Text>
+      <TouchableOpacity onPress={goBackHandler}  style={styles.goBackContainer} >
+        {backIcon}<Text style={styles.backText}>Back</Text>
       </TouchableOpacity>
         <Text style={styles.titleMidle}>{name}</Text>
         <Text style={styles.titleRight}>{symbol}/USD</Text>

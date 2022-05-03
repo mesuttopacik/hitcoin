@@ -20,15 +20,15 @@ const Features = ({price, marketCap, symbol, availableSupply, totalSupply, price
                 </View>
                 <View style={styles.secondInnerBody}>
                   <Text style={styles.title}>Market Cap</Text>
-                  <Text>{marketCapFixedValue}</Text>
+                  <Text style = {styles.values}>{marketCapFixedValue}</Text>
                   <Text style={styles.title}>Daily price change</Text>
-                  <Text>{priceChange1d}</Text>
+                  <Text style = {styles.values}>{priceChange1d}</Text>
                 </View>  
                 <View>
                   <Text style={styles.title}>Avalible Suply</Text>
-                  <Text>{availableSupplyValue}</Text>
+                  <Text style = {styles.values}>{availableSupplyValue}</Text>
                   <Text style={styles.title}>Total Suply</Text>
-                  <Text>{totalSupplyFixedValue}</Text>
+                  <Text style = {styles.values}>{totalSupplyFixedValue}</Text>
                 </View>  
             </View>
   )
