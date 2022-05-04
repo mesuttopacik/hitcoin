@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { colors } from '../../constants/GlobalStyles';
 
 export default StyleSheet.create({
   container: {
@@ -16,6 +17,7 @@ export default StyleSheet.create({
   coinName: {
     flex: 1,
     fontWeight: '600',
+    color:colors.black
   },
   bodyInnerContainer: {
     flex: 1,
@@ -41,6 +43,7 @@ export default StyleSheet.create({
   },
   price: {
     marginLeft: 10,
+    color:colors.black
   },
   image: {
     marginRight: 10,

@@ -24,7 +24,7 @@ const News = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.trendingNews}>Trending News</Text>
-      {news.map(({id, source,imgURL, title, coins}) => (
+      {news.map(({id, source,imgURL, title}) => (
           <View key={id} style={styles.con}>
               <Image style={styles.image} source={{uri:imgURL}} />
               <View style={styles.body}>

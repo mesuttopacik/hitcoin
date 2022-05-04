@@ -31,6 +31,7 @@ export default StyleSheet.create({
   },
   title: {
     textAlign: 'justify',
+    color:colors.black,
   },
   source: {
     color: colors.slightText,

@@ -7,5 +7,14 @@ export default StyleSheet.create({
             flex: 1,
             backgroundColor: "white",
           
+    },
+    tooltip:{
+        
+            backgroundColor: 'yellow',
+            borderRadius: 4,
+            color: 'red',
+            fontSize: 18,
+            padding: 4,
+          
     }
 })

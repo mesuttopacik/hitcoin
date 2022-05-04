@@ -8,6 +8,7 @@ import News from '../../components/News';
 
 const Detail = ({route}) => {
   const {
+    id,
     name,
     price,
     marketCap,
@@ -32,7 +33,7 @@ const Detail = ({route}) => {
         />
 
         <View>
-          <Chart coinName={name} />
+          <Chart coinName={id} />
         </View>
 
         <News />
