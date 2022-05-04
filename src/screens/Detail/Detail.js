@@ -1,4 +1,4 @@
-import {View, Text, Dimensions, ScrollView, SafeAreaView} from 'react-native';
+import {View,  ScrollView} from 'react-native';
 import React from 'react';
 import styles from './Detail.styles';
 import Chart from '../../components/Chart';
@@ -32,7 +32,7 @@ const Detail = ({route}) => {
         />
 
         <View>
-          <Chart />
+          <Chart coinName={name} />
         </View>
 
         <News />

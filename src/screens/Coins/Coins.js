@@ -3,7 +3,6 @@ import React from 'react';
 import useFetch from '../../hooks/useFetch';
 import Error from '../../components/Error';
 import CoinCard from '../../components/CoinCard';
-import Header from '../../components/Header';
 
 const Coins = ({navigation}) => {
     const {
@@ -25,7 +24,6 @@ navigation.navigate('Detail', {el})
     }
   return (
     <View>
-        {/* <Header /> */}
       <FlatList
       data={coinsData.coins}
       renderItem={renderCoins}
