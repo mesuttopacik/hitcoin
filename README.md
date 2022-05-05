@@ -1,8 +1,8 @@
 # hitcoin
 
 # Some Images from the App
-<img src="https://user-images.githubusercontent.com/63112557/166969164-80b34d2b-da91-4aa9-a28a-90938e859687.png" width=200 height=390>
-<img src="https://user-images.githubusercontent.com/63112557/166969235-0e9b296d-51a1-427c-9e2e-e59c27f00e52.png" width=200 height=390>
+<img src="https://user-images.githubusercontent.com/63112557/166969164-80b34d2b-da91-4aa9-a28a-90938e859687.png" width=200 height=390> <img src="https://user-images.githubusercontent.com/63112557/166969235-0e9b296d-51a1-427c-9e2e-e59c27f00e52.png" width=200 height=390>
+
 
 
 # Resources & Tools 
