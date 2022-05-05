@@ -13,12 +13,15 @@ export const fetchHistoricalData = createAsyncThunk('coinDetails/fetchHistorical
   (await fetchHistoricalData(period,coinName)).news
 );
 
-const coinDetailsSlice = createSlice({
-  name: 'coinDetails',
+const detailsSlice = createSlice({
+  name: 'details',
   initialState: {},
   reducers: {
     coinSelected(state, action) {
       state.selectedCoin = action.payload
+    },
+    chartPeriodChanged(state, action) {
+      state.chartPeriod = action.payload
     }
   },
   extraReducers: builder => {
@@ -33,7 +36,8 @@ const coinDetailsSlice = createSlice({
 });
 
 export const {
-  coinSelected
-} = coinDetailsSlice.actions;
+  coinSelected,
+  chartPeriodChanged
+} = detailsSlice.actions;
 
-export default coinDetailsSlice.reducer;
+export default detailsSlice.reducer;

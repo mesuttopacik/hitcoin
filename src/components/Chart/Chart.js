@@ -1,20 +1,19 @@
 import { LineChart } from 'react-native-wagmi-charts';
 import {View,} from 'react-native';
 import React, {useEffect} from 'react';
-// import { ActivityIndicator } from 'react-native'
 import styles from './Chart.styles';
 import {sizes} from '../../constants/GlobalStyles';
-// import Error from '../Error';
+import ChartDates from '../ChartDates/ChartDates';
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchHistoricalData } from '../../redux/coinDetailsSlice'
+import { fetchHistoricalData } from '../../redux/detailsSlice'
 
-const Chart = ({coinName}) => {
+const Chart = () => {
   const dispatch = useDispatch();
-  const { historicalData } = useSelector((state) => state.coinDetails)
+  const { selectedCoin, historicalData } = useSelector((state) => state.details)
 
   useEffect(() => {
-    dispatch(fetchHistoricalData('24h',coinName));
+    dispatch(fetchHistoricalData('24h',selectedCoin.name));
   }, []);
 
   return (
@@ -29,6 +28,7 @@ const Chart = ({coinName}) => {
           style={styles.tooltip}/>
         </LineChart>
       </LineChart.Provider>
+      <ChartDates />
     </View>
   );
 };

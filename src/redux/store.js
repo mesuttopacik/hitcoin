@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import coinListReducer from './coinListSlice'
-import coinDetailsReducer from './coinDetailsSlice'
+import listReducer from './listSlice'
+import detailsReducer from './detailsSlice'
 
 const store = configureStore({
   reducer: {
-    coinList: coinListReducer,
-    coinDetails: coinDetailsReducer
+    list: listReducer,
+    details: detailsReducer
   }
 })
 

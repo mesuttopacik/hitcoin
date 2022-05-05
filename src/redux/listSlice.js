@@ -16,8 +16,8 @@ export const fetchCoins = createAsyncThunk('coinList/fetchCoins', async (fetched
   (await fetchCoins(fetchedCoinsCount,30)).coins
 )
 
-const coinListSlice = createSlice({
-  name: 'coinList',
+const listSlice = createSlice({
+  name: 'list',
   initialState,
   reducers: {},
   extraReducers: builder => {
@@ -32,4 +32,4 @@ const coinListSlice = createSlice({
   }
 })
 
-export default coinListSlice.reducer
+export default listSlice.reducer

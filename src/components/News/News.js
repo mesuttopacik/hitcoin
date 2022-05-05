@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './News.styles';
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchNews } from '../../redux/coinDetailsSlice'
+import { fetchNews } from '../../redux/detailsSlice'
 
 const News = () => {
   const dispatch = useDispatch();

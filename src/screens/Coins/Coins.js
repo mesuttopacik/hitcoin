@@ -4,8 +4,8 @@ import Error from '../../components/Error';
 import CoinCard from '../../components/CoinCard';
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCoins } from '../../redux/coinListSlice'
-import { coinSelected } from '../../redux/coinDetailsSlice'
+import { fetchCoins } from '../../redux/listSlice'
+import { coinSelected } from '../../redux/detailsSlice'
 
 const Coins = ({navigation}) => {
   const dispatch = useDispatch();

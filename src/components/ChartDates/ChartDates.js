@@ -2,46 +2,45 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import styles from './ChartDates.styles';
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchHistoricalData } from '../../redux/coinDetailsSlice'
+import { chartPeriodChanged, fetchHistoricalData } from '../../redux/detailsSlice'
 
-const ChartDates = ({coinName, currentChartPeriod}) => {
+const ChartDates = () => {
 
   const dispatch = useDispatch();
-  const [activeIndex, setActiveIndex] = React.useState('24h');
+  const { selectedCoin, chartPeriod } = useSelector((state) => state.details)
   
-  const chartTiming = t => {
-    dispatch(fetchHistoricalData(t,coinName));
-    setActiveIndex(t);
+  const changeChartPeriod = p => {
+    dispatch(chartPeriodChanged(p));
+    dispatch(fetchHistoricalData(p,selectedCoin.name));
   };
-
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        style={currentChartPeriod === '24h' ? styles.activeButton : styles.button}
+        style={chartPeriod === '24h' ? styles.activeButton : styles.button}
         onPress={() => {
-          chartTiming('24h');
+          changeChartPeriod('24h');
         }}>
         <Text style={styles.title}>24H</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={currentChartPeriod === '1w' ? styles.activeButton : styles.button}
-        onPress={() => chartTiming('1w')}>
+        style={chartPeriod === '1w' ? styles.activeButton : styles.button}
+        onPress={() => changeChartPeriod('1w')}>
         <Text style={styles.title}>1W</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={currentChartPeriod === '1m' ? styles.activeButton : styles.button}
-        onPress={() => chartTiming('1m')}>
+        style={chartPeriod === '1m' ? styles.activeButton : styles.button}
+        onPress={() => changeChartPeriod('1m')}>
         <Text style={styles.title}>1M</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={currentChartPeriod === '3m' ? styles.activeButton : styles.button}
-        onPress={() => chartTiming('3m')}>
+        style={chartPeriod === '3m' ? styles.activeButton : styles.button}
+        onPress={() => changeChartPeriod('3m')}>
         <Text style={styles.title}>3M</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={currentChartPeriod === '6m' ? styles.activeButton : styles.button}
-        onPress={() => chartTiming('6m')}>
+        style={chartPeriod === '6m' ? styles.activeButton : styles.button}
+        onPress={() => changeChartPeriod('6m')}>
         <Text style={styles.title}>6M</Text>
       </TouchableOpacity>
     </View>

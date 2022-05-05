@@ -27,7 +27,7 @@ const Detail = () => {
         />
 
         <View>
-          <Chart coinName={selectedCoin.id} />
+          <Chart/>
         </View>
 
         <News />
