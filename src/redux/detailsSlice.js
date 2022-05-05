@@ -3,14 +3,14 @@ import {
   createAsyncThunk
 } from '@reduxjs/toolkit'
 
-import { fetchNews, fetchHistoricalData } from '../services/coinProvider'
+import { fetchNewsFromApi, fetchHistoricalDataFromApi } from '../services/coinProvider'
 
 export const fetchNews = createAsyncThunk('details/fetchNews', async () =>
-  (await fetchNews(0,5)).news
+  (await fetchNewsFromApi(0,5)).news
 );
 
 export const fetchHistoricalData = createAsyncThunk('details/fetchHistoricalData', async (period, coinName) =>
-  (await fetchHistoricalData(period,coinName)).news
+  (await fetchHistoricalDataFromApi(period,coinName)).news
 );
 
 const detailsSlice = createSlice({

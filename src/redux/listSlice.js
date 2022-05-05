@@ -4,7 +4,7 @@ import {
   createEntityAdapter
 } from '@reduxjs/toolkit'
 
-import { fetchCoins } from '../services/coinProvider'
+import { fetchCoinsFromApi } from '../services/coinProvider'
 
 const listAdapter = createEntityAdapter()
 
@@ -13,7 +13,7 @@ const initialState = listAdapter.getInitialState({
 })
 
 export const fetchCoins = createAsyncThunk('list/fetchCoins', async (fetchedCoinsCount) => 
-  (await fetchCoins(fetchedCoinsCount,30)).coins
+  (await fetchCoinsFromApi(fetchedCoinsCount,30)).coins
 )
 
 const listSlice = createSlice({
@@ -26,6 +26,7 @@ const listSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(fetchCoins.fulfilled, (state, action) => {
+        console.log(action.payload)
         listAdapter.addMany(state, action.payload)
         state.status = 'idle'
       })

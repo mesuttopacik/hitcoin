@@ -1,17 +1,17 @@
 import axios from "axios";
 
-export const fetchCoins = async (skip, limit) => 
+export const fetchCoinsFromApi = async (skip, limit) => 
 {
-  return axios.get(`https://api.coinstats.app/public/v1/coins?skip=${skip}&limit=${limit}`);
+  return (await axios.get(`https://api.coinstats.app/public/v1/coins?skip=${skip}&limit=${limit}`)).data;
 };
 
-export const fetchHistoricalData = async (period, coinName) => 
+export const fetchHistoricalDataFromApi = async (period, coinName) => 
 {
-  return axios.get(`https://api.coinstats.app/public/v1/charts?${period}=6m&coinId=${coinName}`);
+  return (await axios.get(`https://api.coinstats.app/public/v1/charts?${period}=6m&coinId=${coinName}`)).data;
 };
 
-export const fetchNews = async (skip, limit) => 
+export const fetchNewsFromApi = async (skip, limit) => 
 {
-  return axios.get(`https://api.coinstats.app/public/v1/news/trending?skip=${skip}&limit=${limit}`);
+  return (await axios.get(`https://api.coinstats.app/public/v1/news/trending?skip=${skip}&limit=${limit}`)).data;
 };
 
