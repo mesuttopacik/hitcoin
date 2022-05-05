@@ -6,13 +6,13 @@ import {
 
 import { fetchCoins } from '../services/coinProvider'
 
-const coinListAdapter = createEntityAdapter()
+const listAdapter = createEntityAdapter()
 
-const initialState = coinListAdapter.getInitialState({
+const initialState = listAdapter.getInitialState({
   status: 'idle'
 })
 
-export const fetchCoins = createAsyncThunk('coinList/fetchCoins', async (fetchedCoinsCount) => 
+export const fetchCoins = createAsyncThunk('list/fetchCoins', async (fetchedCoinsCount) => 
   (await fetchCoins(fetchedCoinsCount,30)).coins
 )
 
@@ -26,7 +26,7 @@ const listSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(fetchCoins.fulfilled, (state, action) => {
-        coinListAdapter.addMany(state, action.payload)
+        listAdapter.addMany(state, action.payload)
         state.status = 'idle'
       })
   }

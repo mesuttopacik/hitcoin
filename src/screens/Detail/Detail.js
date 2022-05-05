@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux'
 
 const Detail = () => {
 
-  const { selectedCoin } = useSelector((state) => state.coinDetails)
+  const { selectedCoin } = useSelector((state) => state.details)
 
   return (
     <View style={styles.container}>

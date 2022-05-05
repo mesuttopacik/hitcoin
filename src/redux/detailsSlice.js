@@ -5,11 +5,11 @@ import {
 
 import { fetchNews, fetchHistoricalData } from '../services/coinProvider'
 
-export const fetchNews = createAsyncThunk('coinDetails/fetchNews', async () =>
+export const fetchNews = createAsyncThunk('details/fetchNews', async () =>
   (await fetchNews(0,5)).news
 );
 
-export const fetchHistoricalData = createAsyncThunk('coinDetails/fetchHistoricalData', async (period, coinName) =>
+export const fetchHistoricalData = createAsyncThunk('details/fetchHistoricalData', async (period, coinName) =>
   (await fetchHistoricalData(period,coinName)).news
 );
 

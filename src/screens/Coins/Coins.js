@@ -9,7 +9,7 @@ import { coinSelected } from '../../redux/detailsSlice'
 
 const Coins = ({navigation}) => {
   const dispatch = useDispatch();
-  const { entities, status, error } = useSelector((state) => state.coinList)
+  const { entities, status, error } = useSelector((state) => state.list)
 
   useEffect(() => {
     dispatch(fetchCoins(entities.length));

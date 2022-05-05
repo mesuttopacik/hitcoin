@@ -7,7 +7,7 @@ import { fetchNews } from '../../redux/detailsSlice'
 
 const News = () => {
   const dispatch = useDispatch();
-  const { news } = useSelector((state) => state.coinDetails)
+  const { news } = useSelector((state) => state.details)
 
   useEffect(() => {
     dispatch(fetchNews());
