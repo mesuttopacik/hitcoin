@@ -2,60 +2,44 @@ import {View, ActivityIndicator, FlatList} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Error from '../../components/Error';
 import CoinCard from '../../components/CoinCard';
-import axios from 'axios';
-import styles from './Coins.styles'
+
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchCoins } from '../../redux/coinListSlice'
+import { coinSelected } from '../../redux/coinDetailsSlice'
 
 const Coins = ({navigation}) => {
-
-  const [loading, setLoading] = useState(true);
-
-  const [error, setError] = useState(null);
-  const [coinList, setCoinList] = useState([]);
-
-
-  fetchData = async () => {
-    try {
-      const {data: responseData} = await axios.get(
-        `https://api.coinstats.app/public/v1/coins?skip=${coinList.length}&limit=30`,
-      );
-      setCoinList([...coinList,...responseData.coins])
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
-  };
+  const dispatch = useDispatch();
+  const { entities, status, error } = useSelector((state) => state.coinList)
 
   useEffect(() => {
-    fetchData();
+    dispatch(fetchCoins(entities.length));
   }, []);
 
-  const coinDetailHandler = el => {
-    navigation.navigate('Detail', {el});
+  const coinClickHandler = coin => {
+    dispatch(coinSelected(coin));
+    navigation.navigate('Detail', {coin});
   };
-  const renderCoins = ({item}) => (
-    <CoinCard item={item} onClick={() => coinDetailHandler(item)} />
+
+  const renderCoins = ({coin}) => (
+    <CoinCard item={coin} onClick={() => coinClickHandler(coin)} />
   );
-
-  const loadMore = () => {
-    fetchData()
-  };
-
 
   if (error) {
     return <Error err={error} />;
   }
-  if (loading) {
+
+  if (status == "loading") {
     return <ActivityIndicator size="large" />;
   }
+
   return (
-    <View style={styles.container}>
+    <View>
       <FlatList
-        data={coinList}
+        data={entities}
         renderItem={renderCoins}
         onEndReachedThreshold={0.2}
         keyExtractor={item => item.id}
-        onEndReached={loadMore}
+        onEndReached={dispatch(fetchCoins(entities.length))}
       />
     </View>
   );

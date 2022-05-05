@@ -1,26 +1,18 @@
-import {View, Text, ActivityIndicator, Image, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import styles from './News.styles';
-import useFetch from '../../hooks/useFetch';
-import Error from '../Error';
+
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchNews } from '../../redux/coinDetailsSlice'
 
 const News = () => {
-  const {
-    error,
-    data: newsData,
-    loading,
-  } = useFetch(
-    'https://api.coinstats.app/public/v1/news/trending?skip=0&limit=5',
-  );
+  const dispatch = useDispatch();
+  const { news } = useSelector((state) => state.coinDetails)
 
-  const {news} = newsData;
+  useEffect(() => {
+    dispatch(fetchNews());
+  }, []);
 
-  if (error) {
-    return <Error err={error} />;
-  }
-  if (loading) {
-    return <ActivityIndicator size="large" />;
-  }
   return (
     <View style={styles.container}>
       <Text style={styles.trendingNews}>Trending News</Text>

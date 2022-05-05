@@ -1,4 +1,4 @@
-import {View, ScrollView} from 'react-native';
+import {View,  ScrollView} from 'react-native';
 import React from 'react';
 import styles from './Detail.styles';
 import Chart from '../../components/Chart';
@@ -6,39 +6,32 @@ import Features from '../../components/Features/Features';
 import Header from '../../components/Header';
 import News from '../../components/News';
 
-const Detail = ({route}) => {
-  const {
-    id,
-    name,
-    price,
-    marketCap,
-    symbol,
-    availableSupply,
-    totalSupply,
-    priceChange1d,
-    priceChange1h,
-  } = route.params.el;
+import { useSelector } from 'react-redux'
+
+const Detail = () => {
+
+  const { selectedCoin } = useSelector((state) => state.coinDetails)
+
   return (
     <View style={styles.container}>
-        <Header name={name} symbol={symbol} />
-        <ScrollView>
-            <Features
-              price={price}
-              marketCap={marketCap}
-              symbol={symbol}
-              availableSupply={availableSupply}
-              totalSupply={totalSupply}
-              priceChange1d={priceChange1d}
-              priceChange1h={priceChange1h}
-            />
+      <Header name={selectedCoin.name} symbol={selectedCoin.symbol} />
+      <ScrollView>
+        <Features
+          price={selectedCoin.price}
+          marketCap={selectedCoin.marketCap}
+          symbol={selectedCoin.symbol}
+          availableSupply={selectedCoin.availableSupply}
+          totalSupply={selectedCoin.totalSupply}
+          priceChange1d={selectedCoin.priceChange1d}
+          priceChange1h={selectedCoin.priceChange1h}
+        />
 
-            <View>
-              <Chart coinName={id} />
-            </View>
+        <View>
+          <Chart coinName={selectedCoin.id} />
+        </View>
 
-            <News />
-            
-        </ScrollView>
+        <News />
+      </ScrollView>
     </View>
   );
 };

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "red",
+        "fontSize": 20,
+      }
+    }
+    testID="error-message"
+  />
+  <Text>
+    Something went Wrong!  Check your internet connection and try again
+  </Text>
+</View>
+`;

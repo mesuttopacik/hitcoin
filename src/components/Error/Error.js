@@ -6,9 +6,8 @@ import styles from './Error.styles'
 const Error = ({err}) => {
   return (
     <View style = {styles.container}>
-        <Text style ={styles.errorMessage}> {err} </Text>
+        <Text style ={styles.errorMessage} testID='error-message'>{err}</Text>
       <Text>Something went Wrong!  Check your internet connection and try again</Text>
-      {/* <Text></Text> */}
     </View>
   )
 }

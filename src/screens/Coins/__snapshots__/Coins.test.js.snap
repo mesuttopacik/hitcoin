@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should add coins to list 1`] = `
+<ActivityIndicator
+  size="large"
+/>
+`;
