@@ -1,11 +1,12 @@
 import { LineChart} from 'react-native-wagmi-charts';
-import {View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-// import { ActivityIndicator } from 'react-native'
+import { ActivityIndicator } from 'react-native'
 import styles from './Chart.styles';
 import {colors, sizes} from '../../constants/GlobalStyles';
 // import Error from '../Error';
 import axios from 'axios';
+import ChartDates from '../ChartDates/ChartDates';
 
 
 const Chart = ({coinName}) => {
@@ -36,10 +37,10 @@ console.log(data)
   }, []);
   // console.log(data)
 
-  // if(loading) {
-  //     return < ActivityIndicator size='large' />
-  // }
-  // console.log(coinName)
+  if(loading) {
+      return < ActivityIndicator size='large' />
+  }
+  console.log(coinName)
   return (
     <View style={styles.container}>
       <LineChart.Provider data={data}>
@@ -52,6 +53,7 @@ console.log(data)
           style={styles.tooltip}/>
         </LineChart>
       </LineChart.Provider>
+      <ChartDates />
     </View>
   );
 };

@@ -14,7 +14,7 @@ export const colors = {
   borderColor: '#333533',
 
   cursorColor:'hotpink',
-  pathColor:'#fad2e1',
+  pathColor:'hotpink',
 
   danger: 'red',
   success: 'green',
