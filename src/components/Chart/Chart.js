@@ -1,43 +1,12 @@
-import {CandlestickChart, LineChart} from 'react-native-wagmi-charts';
-import {View, Text, Button} from 'react-native';
+import { LineChart} from 'react-native-wagmi-charts';
+import {View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 // import { ActivityIndicator } from 'react-native'
 import styles from './Chart.styles';
-import {sizes} from '../../constants/GlobalStyles';
+import {colors, sizes} from '../../constants/GlobalStyles';
 // import Error from '../Error';
 import axios from 'axios';
 
-const expData = [
-  {
-    timestamp: 1625945400000,
-    value: 33575.25,
-  },
-  {
-    timestamp: 1625945400000,
-    value: 33575.25,
-  },
-  {
-    timestamp: 1625946300000,
-    value: 33545.25,
-  },
-  {
-    timestamp: 1625945400000,
-    value: 33575.25,
-  },
-  {
-    timestamp: 1625947200000,
-    value: 33510.25,
-  },
-
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625945400000,
-    value: 33575.25,
-  },
-];
 
 const Chart = ({coinName}) => {
   const [loading, setLoading] = useState(true);
@@ -77,8 +46,8 @@ console.log(data)
         <LineChart
           width={sizes.windowWidth * 0.95}
           height={sizes.windowHeight / 3}>
-          <LineChart.Path color="hotpink" />
-          <LineChart.CursorCrosshair color='hotpink' />
+          <LineChart.Path color={colors.pathColor} />
+          <LineChart.CursorCrosshair color={colors.cursorColor} />
           <LineChart.Tooltip cursorGutter={60} xGutter={16} yGutter={16} 
           style={styles.tooltip}/>
         </LineChart>

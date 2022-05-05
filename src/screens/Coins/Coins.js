@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Error from '../../components/Error';
 import CoinCard from '../../components/CoinCard';
 import axios from 'axios';
+import styles from './Coins.styles'
 
 const Coins = ({navigation}) => {
 
@@ -48,7 +49,7 @@ const Coins = ({navigation}) => {
     return <ActivityIndicator size="large" />;
   }
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={coinList}
         renderItem={renderCoins}

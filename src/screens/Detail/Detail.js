@@ -1,4 +1,4 @@
-import {View,  ScrollView} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import React from 'react';
 import styles from './Detail.styles';
 import Chart from '../../components/Chart';
@@ -20,24 +20,25 @@ const Detail = ({route}) => {
   } = route.params.el;
   return (
     <View style={styles.container}>
-      <Header name={name} symbol={symbol} />
-      <ScrollView>
-        <Features
-          price={price}
-          marketCap={marketCap}
-          symbol={symbol}
-          availableSupply={availableSupply}
-          totalSupply={totalSupply}
-          priceChange1d={priceChange1d}
-          priceChange1h={priceChange1h}
-        />
+        <Header name={name} symbol={symbol} />
+        <ScrollView>
+            <Features
+              price={price}
+              marketCap={marketCap}
+              symbol={symbol}
+              availableSupply={availableSupply}
+              totalSupply={totalSupply}
+              priceChange1d={priceChange1d}
+              priceChange1h={priceChange1h}
+            />
 
-        <View>
-          <Chart coinName={id} />
-        </View>
+            <View>
+              <Chart coinName={id} />
+            </View>
 
-        <News />
-      </ScrollView>
+            <News />
+            
+        </ScrollView>
     </View>
   );
 };

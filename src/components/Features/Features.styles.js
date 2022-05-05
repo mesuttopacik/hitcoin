@@ -10,7 +10,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     borderWidth: 1,
-    borderColor: colors.borderColor,
+    borderColor: colors.accent,
     marginHorizontal: 10,
     borderRadius: 4,
     shadowColor: colors.shadowColor,

@@ -3,6 +3,7 @@ import { colors, sizes } from '../../constants/GlobalStyles'
 
 
 const marginTitleTop = Platform.OS === 'android' ? 20 : 40;
+const headerHeight = Platform.OS === 'android' ? 70 : 90;
 
 export default StyleSheet.create({
     container:{
@@ -12,20 +13,25 @@ export default StyleSheet.create({
         left:0,
         right:0,
         top:0,
-        height:Platform.OS === 'android' ? 70 : 90,
+        height:headerHeight,
         zIndex:1000,
         elevation:1000,
         flexDirection:'row',
         alignItems:'center',
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+        borderBottomWidth: 0.1,
+        borderColor: colors.borderColor,
+        shadowColor: colors.shadowColor,
+        shadowOffset: {width: 0, height: 0.1},
+        shadowOpacity: 0.2,
     },
     titleRight:{
-        color:colors.primary,
+        color:colors.accent,
         marginRight:sizes.marginVertical,
         marginTop:marginTitleTop,
     },
     titleMidle:{
-        color:colors.primary,
+        color:colors.accent,
         fontWeight:'500',
         fontSize:20,
         marginTop:marginTitleTop,
@@ -37,6 +43,6 @@ export default StyleSheet.create({
         marginTop:marginTitleTop,
     },
     backText:{
-        color:colors.primary,
+        color:colors.accent,
     }
 })

@@ -1,4 +1,4 @@
-import {View, Text, ActivityIndicator, Image} from 'react-native';
+import {View, Text, ActivityIndicator, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import styles from './News.styles';
 import useFetch from '../../hooks/useFetch';
@@ -24,14 +24,15 @@ const News = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.trendingNews}>Trending News</Text>
+
       {news.map(({id, source,imgURL, title}) => (
-          <View key={id} style={styles.con}>
+          <TouchableOpacity key={id} style={styles.bodyContainer} onPress={()=>console.log('tıklandı')}>
               <Image style={styles.image} source={{uri:imgURL}} />
               <View style={styles.body}>
             <Text numberOfLines={2} style={styles.title}>{title}</Text>
             <Text style={styles.source}>{source}</Text>
             </View>
-          </View>
+          </TouchableOpacity>
       ))}
     </View>
   );

@@ -7,7 +7,7 @@ import {colors} from '../../constants/GlobalStyles'
 
 
 
-const backIcon = <Icon name="arrow-left" size={30} color={colors.primary} />;
+const backIcon = <Icon name="arrow-left" size={30} color={colors.accent} />;
 
 
 const Header = ({name,symbol}) => {

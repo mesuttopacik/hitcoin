@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Coins from './src/screens/Coins';
 import Detail from './src/screens/Detail';
+import { colors } from './src/constants/GlobalStyles';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +16,10 @@ const App = () => {
         <Stack.Screen
           name="Coins"
           component={Coins}
-          options={{title: 'Hit Coins'}}
+          options={{title: 'Top Coins',
+          headerTintColor:colors.accent,
+          headerStyle:{backgroundColor:colors.background}
+        }}
         />
         <Stack.Screen
           name="Detail"

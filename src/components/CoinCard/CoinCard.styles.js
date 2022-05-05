@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { colors } from '../../constants/GlobalStyles';
+import { colors, sizes } from '../../constants/GlobalStyles';
 
 export default StyleSheet.create({
   container: {
@@ -17,7 +17,7 @@ export default StyleSheet.create({
   coinName: {
     flex: 1,
     fontWeight: '600',
-    color:colors.black
+    color:colors.accent
   },
   bodyInnerContainer: {
     flex: 1,
@@ -26,27 +26,24 @@ export default StyleSheet.create({
     justifyContent:'space-between',
   },
   priceChange1hBase: {
-    marginRight: 5,
+    marginRight: sizes.marginVertical,
     flexDirection: 'row',
     padding: 3,
     opacity: 0.9,
+    fontWeight: 'bold',
   },
   priceChange1hP: {
-    marginLeft: 10,
-    color: '#2d6a4f',
-    fontWeight: 'bold',
+    color: colors.success,
   },
   priceChange1hC: {
-    marginLeft: 10,
-    color: '#bb3e03',
-    fontWeight: 'bold',
+    color: colors.danger,
   },
   price: {
-    marginLeft: 10,
-    color:colors.black
+    marginLeft: sizes.marginVertical,
+    color:colors.accent
   },
   image: {
-    marginRight: 10,
+    marginRight: sizes.marginVertical,
     height: 30,
     width: 30,
   },

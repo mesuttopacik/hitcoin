@@ -6,12 +6,12 @@ export default StyleSheet.create({
     margin: sizes.marginVertical,
   },
   trendingNews: {
-    color:colors.primary,
+    color:colors.accent,
     fontSize: 20,
     marginBottom:10,
     fontWeight:'600'
   },
-  con: {
+  bodyContainer: {
     flex: 1,
     flexDirection: 'row',
   },
@@ -31,7 +31,7 @@ export default StyleSheet.create({
   },
   title: {
     textAlign: 'justify',
-    color:colors.black,
+    color:colors.accent,
   },
   source: {
     color: colors.slightText,
