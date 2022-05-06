@@ -9,13 +9,18 @@ export const fetchNews = createAsyncThunk('details/fetchNews', async () =>
   (await fetchNewsFromApi(0,5)).news
 );
 
-export const fetchHistoricalData = createAsyncThunk('details/fetchHistoricalData', async (period, coinName) =>
-  (await fetchHistoricalDataFromApi(period,coinName)).news
+export const fetchHistoricalData = createAsyncThunk('details/fetchHistoricalData', async (period, { getState }) =>
+  {
+    const state = getState();
+    return (await fetchHistoricalDataFromApi(period,state.details.selectedCoin.id)).chart;
+  }
 );
+
+const initialState = { news: [], chartPeriod: "24h"};
 
 const detailsSlice = createSlice({
   name: 'details',
-  initialState: {},
+  initialState,
   reducers: {
     coinSelected(state, action) {
       state.selectedCoin = action.payload
@@ -29,8 +34,12 @@ const detailsSlice = createSlice({
       .addCase(fetchNews.fulfilled, (state, action) => {
         state.news = action.payload
       })
-      .addCase(fetchHistoricalData.fulfilled, (state, action) => {
+      .addCase(fetchHistoricalData.pending, (state, action) => {
         state.historicalData = action.payload
+        
+      })
+      .addCase(fetchHistoricalData.fulfilled, (state, action) => {
+        state.historicalData = action.payload.map((item)=> ({timestamp:item[0], value:item[1]}));
       })
   }
 });

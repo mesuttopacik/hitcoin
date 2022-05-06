@@ -9,10 +9,10 @@ import { coinSelected } from '../../redux/detailsSlice'
 
 const Coins = ({navigation}) => {
   const dispatch = useDispatch();
-  const { entities, status, error } = useSelector((state) => state.list)
-
+  const { coins, status, error } = useSelector((state) => state.list)
+  
   useEffect(() => {
-    dispatch(fetchCoins(entities.length));
+    dispatch(fetchCoins(coins.length));
   }, []);
 
   const coinClickHandler = coin => {
@@ -20,9 +20,11 @@ const Coins = ({navigation}) => {
     navigation.navigate('Detail', {coin});
   };
 
-  const renderCoins = ({coin}) => (
-    <CoinCard item={coin} onClick={() => coinClickHandler(coin)} />
-  );
+  const renderCoins = ({item}) => {
+    return (
+      <CoinCard item={item} onClick={() => coinClickHandler(item)} />
+    )
+  };
 
   if (error) {
     return <Error err={error} />;
@@ -32,14 +34,18 @@ const Coins = ({navigation}) => {
     return <ActivityIndicator size="large" />;
   }
 
+  const loadMore = () => {
+    dispatch(fetchCoins(coins.length));
+  };
+
   return (
     <View>
       <FlatList
-        data={entities}
+        data={coins}
         renderItem={renderCoins}
         onEndReachedThreshold={0.2}
         keyExtractor={item => item.id}
-        onEndReached={dispatch(fetchCoins(entities.length))}
+        onEndReached={loadMore}
       />
     </View>
   );

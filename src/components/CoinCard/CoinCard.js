@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './CoinCard.styles';
 
 const CoinCard = ({item, onClick}) => {
+
   const {name, price, priceChange1h, icon} = item;
   const priceFixedValue = Number(price.toFixed(3));
 

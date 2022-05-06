@@ -4,14 +4,13 @@ import styles from './ChartDates.styles';
 import { useDispatch, useSelector } from 'react-redux'
 import { chartPeriodChanged, fetchHistoricalData } from '../../redux/detailsSlice'
 
-const ChartDates = () => {
-
+const ChartDates = (props) => {
   const dispatch = useDispatch();
-  const { selectedCoin, chartPeriod } = useSelector((state) => state.details)
+  const { chartPeriod } = useSelector((state) => state.details)
   
   const changeChartPeriod = p => {
     dispatch(chartPeriodChanged(p));
-    dispatch(fetchHistoricalData(p,selectedCoin.name));
+    props.onSelect(p);
   };
 
   return (

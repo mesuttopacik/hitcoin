@@ -1,20 +1,20 @@
 import {
   createSlice,
-  createAsyncThunk,
-  createEntityAdapter
+  createAsyncThunk
 } from '@reduxjs/toolkit'
 
 import { fetchCoinsFromApi } from '../services/coinProvider'
 
-const listAdapter = createEntityAdapter()
-
-const initialState = listAdapter.getInitialState({
-  status: 'idle'
-})
+const initialState = {
+  status: 'idle',
+  coins: []
+};
 
 export const fetchCoins = createAsyncThunk('list/fetchCoins', async (fetchedCoinsCount) => 
-  (await fetchCoinsFromApi(fetchedCoinsCount,30)).coins
-)
+  {
+    return (await fetchCoinsFromApi(fetchedCoinsCount,30)).coins;
+  }
+);
 
 const listSlice = createSlice({
   name: 'list',
@@ -23,14 +23,13 @@ const listSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchCoins.pending, (state, action) => {
-        state.status = 'loading'
+        state.status = 'loading';
       })
       .addCase(fetchCoins.fulfilled, (state, action) => {
-        console.log(action.payload)
-        listAdapter.addMany(state, action.payload)
-        state.status = 'idle'
+        state.coins.push(...action.payload);
+        state.status = 'idle';
       })
   }
-})
+});
 
-export default listSlice.reducer
+export default listSlice.reducer;
